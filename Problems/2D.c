@@ -13,7 +13,6 @@ int prime(int a)
     }
     return b;
 }
-
 int main()
 {
     int a;
