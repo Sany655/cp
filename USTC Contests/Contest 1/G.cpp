@@ -1,49 +1,88 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 int main()
 {
-    int s;
-    bool possible = true;
-    cin >> s;
-    long long arr[s];
-    for (int i = 0; i < s; i++)
+    long long t = 5, start = 0, end = 0, startPoint = 0, endPoint = 0;
+    bool flag = false, possibility = true;
+    // cin >> t;
+    // long long arr[t];
+    vector<long long> arr = {69, 37, 27, 4, 2};
+    // cout << "t=" << t << endl;
+    for (int i = 0; i < t; i++)
     {
-        cin >> arr[i];
+        long long el;
+        cin >> el;
+        arr.push_back(el);
     }
-    int start = 0, end = 0;
-    for (int i = 0; i < s - 1; i++)
-    {
-        if (arr[i] > arr[i + 1])
+
+    for (int i = 0; i < t; i++)
+    {   
+        // cout<<"index : "<<i<<endl;
+        // cout<<"Point is : "<<startPoint<<" after segment value : "<<arr[i]<<" possibility : "<<possibility<<"\n";
+        if (startPoint > arr[i])
+            possibility = false;
+        if (i < t-1 && arr[i] > arr[i + 1])
         {
-            start = i;
-            for (int j = start + 1; j < s - 1; j++)
+            if (flag)
             {
-                if (arr[j] < arr[j + 1])
-                {
-                    end = j;
-                    i = end + 1;
-                    break;
-                }
-                if (j == s - 2){
-                    end = j + 1;
-                    i = end + 1;
-                }
-            }
-            if (i < s && arr[i] > arr[i + 1])
-            {
-                possible = false;
+                possibility = false;
                 break;
             }
+            start = i;
+            startPoint = arr[i];
+            // cout << "start = " << start+1 << endl;
+            while (arr[i] > arr[i + 1] && i < t - 1)
+            {
+                i++;
+                // if endlig gone to the last index then end has to below of i++.
+                // cout<<"index : "<<i<<endl;
+            }
+            end = i;
+            if (start!=0 && arr[start-1] > arr[i])
+            {
+                possibility = false;
+            }
+            
+            // cout << "end = " << end+1 << endl;
+            flag = true;
         }
     }
 
-    if (possible)
+    if (possibility)
     {
         cout << "yes\n"
-             << start + 1 << " " << end + 1;
+             << start + 1 << " " << end + 1 << endl;
     }
     else
     {
         cout << "no\n";
     }
 }
+
+// 5
+// 69 37 27 4 2
+
+// 2
+// 58 4
+
+// 2
+// 1 2
+
+// 4
+// 3 1 2 4
+
+// 4
+// 2 1 3 4
+
+// 3
+// 3 2 1
+
+// 4
+// 1 4 2 3
+
+// 6
+// 19517752 43452931 112792556 68417469 779722934 921694415
+
+// 5
+// 2 5 4 3 1
