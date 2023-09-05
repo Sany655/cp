@@ -1,0 +1,26 @@
+math
+https://vjudge.net/problem/HackerRank-game-with-cells
+https://vjudge.net/problem/HackerRank-maximum-draws
+number theory
+https://vjudge.net/problem/HackerRank-sherlock-and-gcd
+https://vjudge.net/problem/HackerRank-fibonacci-finding-easy
+binary search
+https://vjudge.net/problem/HackerRank-si-basic-binary-search-on-array
+https://vjudge.net/problem/HackerRank-binary-search-basic
+https://vjudge.net/problem/HackerRank-the-binary-search-efficiency-doubter
+linked list
+https://vjudge.net/problem/HackerRank-print-the-elements-of-a-linked-list
+https://vjudge.net/problem/EOlymp-10802
+https://vjudge.net/problem/HackerRank-reverse-a-linked-list
+dfs
+https://vjudge.net/problem/UVA-336
+https://vjudge.net/problem/UVA-10004
+bfs
+https://vjudge.net/problem/UVA-280
+https://vjudge.net/problem/UVA-11518
+https://vjudge.net/problem/UVA-10452
+DP
+https://vjudge.net/problem/DMOJ-lis
+https://vjudge.net/problem/CSES-1639
+
+   
