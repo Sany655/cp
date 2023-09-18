@@ -1,24 +1,19 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 struct node
 {
-    node *next;
     node *prev;
     int data;
+    node *next;
 };
 node *head = NULL;
 node *tail = NULL;
-node *evenPonter = NULL;
 
 void push(int val)
 {
     if (tail != NULL)
     {
-        if (val % 2 == 0)
-        {
-            evenPonter = tail;
-        }
         node *nn = new node();
         nn->data = val;
         nn->next = NULL;
@@ -36,21 +31,74 @@ void push(int val)
     }
 }
 
+void insert(int x, int n)
+{
+    node *cn = head;
+    node *nn = new node();
+    nn->data = x;
+    if (n > 1)
+    {
+        for (int i = 0; i < n - 2; i++)
+        {
+            if (cn->next != NULL)
+            {
+                cn = cn->next;
+            }
+            else
+            {
+                return;
+            }
+        }
+        nn->next = cn->next;
+        nn->prev = cn->prev;
+        cn->next = nn;
+        cn = cn->next;
+    }
+    else
+    {
+        nn->next = head;
+        nn->prev = NULL;
+        head = nn;
+    }
+}
+
+void traverse()
+{
+    node *trav = head;
+    while (trav != NULL)
+    {
+        cout << trav->data << " ";
+        trav = trav->next;
+    }
+}
+
 int main()
 {
-    int num;
-    cin >> num; // Reading input from STDIN
+    int num, ep = 0;
+    cin >> num;
     for (int i = 0; i < num; i++)
     {
         int x;
         cin >> x;
-        push(x);
+        if (x % 2 != 0 || tail == NULL)
+        {
+            push(x);
+            if (x % 2 == 0)
+                ep = i;
+        }
+        else
+        {
+            if (tail->data % 2 != 0)
+            {
+                ep = i+1;
+                push(x);
+            }
+            else
+            {
+                insert(x, ep);
+            }
+        }
     }
 
-    node *cn = head;
-    while (cn != NULL)
-    {
-        cout << cn->data << " ";
-        cn = cn->next;
-    }
+    traverse();
 }
