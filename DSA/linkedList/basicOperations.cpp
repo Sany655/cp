@@ -35,7 +35,7 @@ void pop()
 {
     node *tmp = tail;
     tail = tail->prev;
-    delete(tmp);
+    delete (tmp);
 }
 
 void append(int val)
@@ -62,7 +62,7 @@ void shift()
 {
     node *tmp = head;
     head = head->next;
-    delete(tmp);
+    delete (tmp);
 }
 
 void traverse()
@@ -95,27 +95,64 @@ void delet()
     }
 }
 
+void insert(int x, int n)
+{
+    node *cn = head;
+    node *nn = new node();
+    nn->data = x;
+    if (n > 1)
+    {
+        for (int i = 0; i < n - 2; i++)
+        {
+            if (cn->next != NULL)
+            {
+                cn = cn->next;
+            }
+            else
+            {
+                cout << "Out of bound!";
+                return;
+            }
+        }
+        nn->next = cn->next;
+        nn->prev = cn->prev;
+        cn->next = nn;
+        cn = cn->next;
+    }
+    else
+    {
+        nn->next = head;
+        nn->prev = NULL;
+        head = nn;
+    }
+}
+
 int main()
 {
     for (int i = 0; i < 5; i++)
     {
         push(i);
     }
+    // traverse();
+    // cout << '\n';
+    // traverseReverse();
+    // cout << '\n';
+    // append(-1);
+    // traverse();
+    // cout << '\n';
+    // pop();
+    // traverse();
+    // cout << '\n';
+    // push(11);
     traverse();
-    cout<<'\n';
-    traverseReverse();
-    cout<<'\n';
-    append(-1);
+    cout << '\n';
+    // shift();
+    // traverseReverse();
+    cout << '\n';
+    insert(33,3);
+    insert(44,3);
+    insert(55,3);
+    insert(66,3);
     traverse();
-    cout<<'\n';
-    pop();
-    traverse();
-    cout<<'\n';
-    push(11);
-    traverse();
-    cout<<'\n';
-    shift();
-    traverseReverse();
-    cout<<'\n';
-    delet();
+    // delet();
 }
