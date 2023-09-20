@@ -1,25 +1,39 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
-  
-int fun(int n)
+
+
+int gcd(int x, int y)
 {
-    cout<<n<<" ";
-    if (n > 5)
-        return n - 1;
-  
-    // A recursive function passing parameter
-    // as a recursive call or recursion inside 
-    // the recursion
-    return fun(fun(n + 11));
+    while (y % x)
+    {
+        int tmp = x;
+        x = y % x;
+        y = tmp;
+    }
+    return x;
 }
-  
-// Driver code
+
 int main()
 {
-    int r;
-    r = fun(1);
-    
-    cout << " " << r;
-    
-    return 0;
-}
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        int l, r, i, j;
+        cin >> l >> r;
+        bool flag = false;
+        for (i = l; i < r; i++)
+        {
+            for (j = i + 1; j < r; j++)
+            {
+                int lcm = (i * j) / gcd(i, j);
+                if (lcm >= l && lcm <= r)
+                {
+                    flag = true;
+                }
+            }
+            if(flag) break;
+        }
+        cout<<i<<" "<<j<<endl;
+    }
+} // log(n)
