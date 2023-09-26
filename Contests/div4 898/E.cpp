@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 int main()
 {
     int t;
@@ -11,17 +12,14 @@ int main()
         vector<long long int> coral;
         for (int i = 0; i < n; i++)
         {
-            long long x;
-            cin >> x;
-            coral.push_back(x);
+            long long el;
+            cin >> el;
+            coral.push_back(el);
         }
-        sort(coral.begin(), coral.end());
-
-        int a = 0;
-        for (int i = 0,j=0; i < coral.size(); i++)
-        {
-            // coral[i+1]-coral[1]
-        }
+        sort(coral.begin(),coral.end());
+        long long int h = coral[0];
         
+
+        cout << h << endl;
     }
 }
