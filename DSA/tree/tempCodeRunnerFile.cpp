@@ -1,10 +1,9 @@
-f.inOrder(f.root);
-    while (true)
-    {
-        cout << "\nwhat do you want to delete? ";
-        int x;
-        cin >> x;
-        if (!f.delete_iterative(x))
-            break;
-        f.inOrder(f.root);
-    }
+ (cn->parent != NULL)
+        {
+            if (cn->parent->value < cn->value)
+            {
+                Node *tmp = cn;
+                cn->value = cn->parent->value;
+                cn->parent->value = tmp->value;
+            }
+        }
